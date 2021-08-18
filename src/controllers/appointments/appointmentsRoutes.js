@@ -1,6 +1,7 @@
 import { Router } from "express";
 import AppointmentsController from "./appointmentsController.js";
 import AppointmentValidation from "../../validation/AppointmentValidation.js";
+import { Routes } from "../../constant/Routes.js";
 
 const router = Router();
 const appointmentsRoutes = (app) => {
@@ -16,7 +17,8 @@ const appointmentsRoutes = (app) => {
     .route("/")
     .post(AppointmentValidation.book(), AppointmentsController.bookAppointment);
 
-  app.use("/appointments", router);
+  // app.use("getDoctorDetails: async ", router);
+  app.use(Routes.APPOINTMENTS, router);
 };
 
 export default appointmentsRoutes;

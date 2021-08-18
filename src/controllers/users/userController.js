@@ -22,31 +22,7 @@ const userController = {
       res.status(502).send(errorResponse(502));
     }
   },
-  createUser: async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(402).send(errorResponse(402));
-    }
-    let data = req.body;
-    let params = req.params;
-    let query = req.query;
-    try {
-      let result = await UserService.createUser(data, params, query);
-      res
-        .status(201)
-        .send(
-          successResponse(
-            201,
-            "User Created",
-            "User has been created successfully"
-          )
-        );
-    } catch (error) {
-      console.error(error);
-      res.status(502).send(errorResponse(502));
-    }
-  },
-
+  
   updateUser: (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

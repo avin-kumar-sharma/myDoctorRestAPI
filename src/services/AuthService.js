@@ -30,6 +30,7 @@ const AuthService = {
 			})
 		);
 	},
+
 	login: async (data, params, query, req, res) => {
 		try {
 			let user;
@@ -72,6 +73,24 @@ const AuthService = {
 			res.status(500).send(errorResponse(500));
 		}
 	},
+
+	checkemail: async (data, params, query, req, res) => {
+		try{
+			const existingUser = await Client.findOne({
+				$or: [{ contactNumber: data.username }, { email: data.username }],
+			}).exec();
+
+			if(existingUser) {
+				res.status(200).send({exist: true});
+				return;
+			}else {
+				res.status(404).send({exist: false});
+				return;
+			}
+		} catch(err) {
+			res.status(500).send(errorResponse(500));
+		}
+	}
 };
 
 export default AuthService;

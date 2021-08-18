@@ -15,6 +15,13 @@ const AuthValidation = {
       check('gender', 'gender is Mandatory Parameter Missing.').not().isEmpty(),
       check('password', 'password is Mandatory Parameter Missing.').not().isEmpty(),
     ]
+  },
+
+  checkUser: () => {
+    return [
+      check("username", "username is mandatorys.").not().isEmpty(),
+    ]
+
   }
 };
 

@@ -4,5 +4,7 @@ export const Routes = {
   GET_ERROR: "/v1/errors",
   PAYMENT: "/v1/payment",
   CHAT: '/v1/chat',
-  APPOINTMENTS: '/v1/appointments'
+  APPOINTMENTS: '/v1/appointments',
+  AUTH: "/v1/auth", 
+  METADATA: "/v1/metadata",                          //updated
 };

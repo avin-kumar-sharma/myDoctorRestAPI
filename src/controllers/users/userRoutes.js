@@ -9,10 +9,6 @@ const userRoutes = (app) => {
   router.route("/").get(UserController.getUsers);
 
   router
-    .route("/create")
-    .post(UserValidation.create(), UserController.createUser);
-
-  router
     .route("/update")
     .post(UserValidation.update(), UserController.updateUser);
 

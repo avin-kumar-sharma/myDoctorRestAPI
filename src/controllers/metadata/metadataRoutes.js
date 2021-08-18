@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Routes } from "../../constant/Routes.js";
 import MetadataController from "./metadataController.js";
 
 const router = Router();
@@ -7,7 +8,7 @@ const specializationsRoutes = (app) => {
     .route("/specializations")
     .get(MetadataController.getSpecializations);
 
-  app.use("/metadata", router);
+  app.use(Routes.METADATA, router);
 };
 
 export default specializationsRoutes;
