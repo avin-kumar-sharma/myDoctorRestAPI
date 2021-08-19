@@ -2,13 +2,14 @@ import { errorResponse, successResponse } from "../cors/responseHandler.js";
 import { Appointment } from "../models/appointment.js";
 import { Client } from "../models/client.js";
 import { Doctor } from "../models/doctor.js";
+
 import pkg from "mongoose";
 
 const { ObjectId } = pkg.Types;
 
 const AppointmentService = {
   bookAppointment: async (data, params, query, req, res) => {
-    let clientExists, doctorExists;
+    let clientExists, doctorExists, dateSlot, timeSlot;
     try {
       clientExists = await Client.exists({ _id: data.clientId });
     } catch (err) {
@@ -27,6 +28,22 @@ const AppointmentService = {
       res.status(419).send(errorResponse(419));
       return;
     }
+
+    try {
+      dateSlot = await Appointment.exists({ date: data.date });
+      timeSlot = await Appointment.exists({ startTime: data.startTime });
+
+    } catch (err) {
+      dateSlot = true;
+      timeSlot = true;
+
+    }
+    if (dateSlot && timeSlot) {
+      res.status(422).send(errorResponse(422));
+      return;
+    }
+
+
     const appointment = new Appointment(data);
     console.log("appointment data is :");
     console.log(data);

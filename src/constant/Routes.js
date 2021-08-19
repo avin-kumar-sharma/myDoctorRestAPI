@@ -6,5 +6,5 @@ export const Routes = {
   CHAT: '/v1/chat',
   APPOINTMENTS: '/v1/appointments',
   AUTH: "/v1/auth", 
-  METADATA: "/v1/metadata",                          //updated
+  METADATA: "/v1/metadata",
 };

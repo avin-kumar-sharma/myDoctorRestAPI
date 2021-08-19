@@ -110,6 +110,11 @@ export const ErrorData = {
 			data: "This Email is already registered.",
 		},
 		{
+			status: "422",
+			message: "Failed to book Slot.",
+			data: "This Slot is already booked.",
+		},
+		{
 			status: "500",
 			message: "Internal server error.",
 			data: "Internal server error.",
