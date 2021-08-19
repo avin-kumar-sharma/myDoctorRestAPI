@@ -81,10 +81,10 @@ const AuthService = {
 			}).exec();
 
 			if(existingUser) {
-				res.status(200).send({exist: true});
+				res.status(200).send({exists: true});
 				return;
 			}else {
-				res.status(404).send({exist: false});
+				res.status(404).send({exists: false});
 				return;
 			}
 		} catch(err) {

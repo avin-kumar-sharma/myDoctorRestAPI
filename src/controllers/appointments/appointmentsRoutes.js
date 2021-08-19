@@ -16,8 +16,7 @@ const appointmentsRoutes = (app) => {
   router
     .route("/")
     .post(AppointmentValidation.book(), AppointmentsController.bookAppointment);
-
-  // app.use("getDoctorDetails: async ", router);
+    
   app.use(Routes.APPOINTMENTS, router);
 };
 

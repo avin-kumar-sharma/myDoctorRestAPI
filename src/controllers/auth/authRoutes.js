@@ -17,7 +17,6 @@ const authRoutes = (app) => {
     .route("/checkuser")
     .post(AuthValidation.checkUser(), AuthController.checkUser);
 
-
   app.use(Routes.AUTH, router);
 };
 

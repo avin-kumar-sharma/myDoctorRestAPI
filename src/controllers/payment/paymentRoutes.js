@@ -5,7 +5,10 @@ import paymentsController from "./paymentController.js";
 
 const router = Router();
 const paymentRoutes = (app) => {
-  router.route("/").post(paymentsController.createPayment);
+
+  router
+    .route("/")
+    .post(paymentsController.createPayment);
 
   app.use(Routes.PAYMENT, checkToken, router);
 };

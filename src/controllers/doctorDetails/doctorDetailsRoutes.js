@@ -6,9 +6,14 @@ import DoctorDetailsValidation from "./../../validation/DoctorDetailsValidation.
 
 const router = Router();
 const doctorDetailsRoutes = (app) => {
-  router.route("/").get(doctorDetailsController.getDoctorDetails);
 
-  router.route("/:doctorId").get(doctorDetailsController.getDoctorDetailsById);
+  router
+    .route("/")
+    .get(doctorDetailsController.getDoctorDetails);
+
+  router
+    .route("/:doctorId")
+    .get(doctorDetailsController.getDoctorDetailsById);
 
   router
     .route("/create")

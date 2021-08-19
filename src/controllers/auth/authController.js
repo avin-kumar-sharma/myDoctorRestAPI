@@ -38,6 +38,7 @@ const authController = {
     let data = req.body;
     let params = req.params;
     let query = req.query;
+    
     try {
       AuthService.checkemail(data, params, query, req, res);
     } catch (error) {
